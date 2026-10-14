@@ -1,0 +1,1113 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta property="og:title" content="Agro Lion | Reparo de Monitor, GPS, Piloto Automático e Starlink em Rondonópolis-MT">
+<meta property="og:description" content="Mais de 30 mil equipamentos reparados. Atendimento no campo e laboratório próprio em Rondonópolis-MT.">
+<meta property="og:image" content="img/colheita-ceo.jpg">
+<meta property="og:type" content="website">
+<link rel="icon" href="img/selo.png">
+<title>Agro Lion Rondonópolis</title>
+<meta name="description" content="Reparo de monitores agrícolas, GPS, antenas, pilotos automáticos, módulo ECU e Starlink em Rondonópolis-MT. Mais de 30 mil equipamentos reparados.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,500..900&family=Manrope:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap">
+<style>
+/* Layout: oficina no campo — fundo branco de laudo, faixas verdes do logo, faixas amarelas de colheitadeira; texto à esquerda, fotos 4:5 em grade alinhada. */
+:root{
+  color-scheme: light;
+  --verde:#0C6D37;          /* verde do logo */
+  --verde-fundo:#0A5A2E;    /* seções verdes */
+  --verde-noite:#06381D;    /* rodapé, monitor */
+  --verde-claro:#E7F1EA;
+  --amarelo:#F5B71D;        /* amarelo de colheitadeira */
+  --laranja:#EB8F20;        /* laranja do logo */
+  --terra:#8E3B1E;          /* terra vermelha do cerrado */
+  --branco:#FFFFFF;
+  --papel:#F6F7F3;
+  --tinta:#132019;
+  --tinta-2:#4A5A50;
+  --linha:#D7DED8;
+  --ok:#34C759; --erro:#E5484D;
+  --f-display:"Archivo","Arial Narrow",system-ui,sans-serif;
+  --f-texto:"Manrope",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --f-mono:"IBM Plex Mono",ui-monospace,"SFMono-Regular",Menlo,monospace;
+  --raio:6px;
+  --max:1200px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--branco);color:var(--tinta);font-family:var(--f-texto);font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased}
+img{max-width:100%;display:block}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--laranja);outline-offset:3px;border-radius:2px}
+.wrap{max-width:var(--max);margin:0 auto;padding-inline:20px}
+section{padding-block:88px}
+@media (max-width:700px){section{padding-block:64px}}
+
+/* tipografia */
+.eyebrow{font-family:var(--f-mono);font-size:12.5px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;display:flex;align-items:center;gap:10px;margin:0 0 18px}
+.eyebrow::before{content:"";width:22px;height:2px;background:currentColor;flex:none}
+h1,h2,h3{font-family:var(--f-display);font-stretch:78%;text-transform:uppercase;line-height:.98;letter-spacing:-.01em;margin:0;text-wrap:balance}
+h1{font-size:clamp(2.5rem,5.8vw,4.7rem);font-weight:900}
+h2{font-size:clamp(2.1rem,4.6vw,3.6rem);font-weight:900}
+h3{font-size:1.45rem;font-weight:800;line-height:1.05}
+.lead{font-size:1.15rem;color:var(--tinta-2);max-width:56ch;margin:22px 0 0}
+.mono{font-family:var(--f-mono);font-size:12px;letter-spacing:.1em;text-transform:uppercase;font-weight:500}
+.destaque{color:var(--verde)}
+.sec-head{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,.8fr);gap:24px 56px;align-items:end;margin-bottom:48px}
+.sec-head p{margin:0;color:var(--tinta-2);max-width:48ch}
+@media (max-width:860px){.sec-head{grid-template-columns:1fr}}
+
+/* botões */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:54px;padding:0 26px;border-radius:var(--raio);font-family:var(--f-display);font-stretch:85%;font-weight:800;font-size:1.05rem;letter-spacing:.03em;text-transform:uppercase;text-decoration:none;border:2px solid transparent;cursor:pointer;transition:transform .15s ease,background-color .15s ease}
+.btn:active{transform:translateY(1px)}
+.btn svg{width:22px;height:22px;flex:none}
+.btn-verde{background:var(--verde);color:var(--branco)}
+.btn-verde:hover{background:var(--verde-noite)}
+.btn-amarelo{background:var(--amarelo);color:var(--verde-noite)}
+.btn-amarelo:hover{background:#FFC93D}
+.btn-linha{border-color:currentColor;background:transparent}
+.link-seta{font-weight:700;text-decoration:none;border-bottom:2px solid var(--amarelo);padding-bottom:2px}
+
+/* TOPO */
+.topo{position:sticky;top:env(safe-area-inset-top,0px);z-index:40;background:var(--branco);border-bottom:1px solid var(--linha)}
+.topo .wrap{display:flex;align-items:center;justify-content:space-between;gap:20px;min-height:76px}
+.topo img{height:46px;width:auto}
+.topo nav{display:flex;gap:28px;font-weight:600;font-size:15px}
+.topo nav a{text-decoration:none;padding:6px 0;border-bottom:2px solid transparent}
+.topo nav a:hover{border-color:var(--amarelo)}
+.topo .btn{min-height:46px;padding:0 18px;font-size:.95rem}
+@media (max-width:960px){.topo nav{display:none}}
+@media (max-width:480px){.btn{font-size:.98rem;padding:0 18px;white-space:nowrap}.topo img{height:38px}.topo .btn span{display:none}.topo .btn{padding:0 14px}}
+
+/* HERO */
+.hero{padding-block:56px 72px;position:relative;overflow:hidden}
+.hero::after{content:"";position:absolute;inset:auto 0 0 0;height:10px;background:repeating-linear-gradient(90deg,var(--verde) 0 60px,var(--amarelo) 60px 120px)}
+.hero-grid{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);gap:56px;align-items:center}
+.hero h1 .l2{color:var(--verde)}
+.hero-ctas{display:flex;flex-wrap:wrap;align-items:center;gap:16px 26px;margin-top:34px}
+.provas{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0;margin-top:44px;border-top:1px solid var(--linha)}
+.provas div{padding:18px 18px 0 0}
+.provas div+div{padding-left:18px;border-left:1px solid var(--linha)}
+.provas strong{display:block;font-family:var(--f-display);font-stretch:75%;font-weight:900;font-size:2.1rem;line-height:1;color:var(--verde)}
+.provas span{display:block;font-size:14px;color:var(--tinta-2);margin-top:6px;line-height:1.35}
+.hero-foto{position:relative}
+.hero-foto figure{margin:0}
+.hero-foto figure img{width:100%;aspect-ratio:4/5;object-fit:cover;border-radius:var(--raio)}
+.hero-foto figcaption{display:flex;justify-content:space-between;gap:12px;margin-top:12px;color:var(--tinta-2)}
+.selo{position:absolute;z-index:2;aspect-ratio:1;width:112px;height:112px;top:-22px;left:-34px;border-radius:50%;background:var(--branco);box-shadow:0 8px 24px rgba(6,56,29,.18);padding:4px}
+@media (max-width:900px){
+  .hero-grid{grid-template-columns:1fr;gap:44px}
+  .hero-foto{max-width:520px}
+  .selo{left:auto;right:-6px;top:-24px;width:96px;height:96px}
+}
+@media (max-width:520px){
+  .provas{grid-template-columns:1fr}
+  .provas div,.provas div+div{padding:16px 0;border-left:0;border-bottom:1px solid var(--linha);display:flex;align-items:baseline;gap:14px}
+  .provas span{margin:0}
+  .hero-ctas .btn{width:100%}
+}
+
+/* FAIXA AMARELA */
+.faixa{background:var(--amarelo);color:var(--verde-noite);padding-block:18px}
+.faixa ul{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px 20px;font-family:var(--f-mono);font-weight:600;font-size:13px;letter-spacing:.1em;text-transform:uppercase}
+.faixa li{display:flex;align-items:center;gap:20px}
+.faixa li+li::before{content:"";width:6px;height:6px;background:var(--verde);transform:rotate(45deg)}
+@media (max-width:700px){.faixa ul{justify-content:flex-start}}
+
+/* SERVIÇOS */
+.servicos{background:var(--branco)}
+.serv-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));grid-auto-flow:row dense;border-top:2px solid var(--tinta);border-left:1px solid var(--linha)}
+.serv{padding:26px 22px 28px;border-right:1px solid var(--linha);border-bottom:1px solid var(--linha);display:flex;flex-direction:column;gap:12px;min-width:0;background:var(--branco);transition:background-color .2s}
+.serv:hover{background:var(--verde-claro)}
+.serv .ic{width:46px;height:46px;border-radius:50%;background:var(--verde);color:var(--branco);display:grid;place-items:center}
+.serv .ic svg{width:24px;height:24px}
+.serv h3{font-size:1.25rem}
+.serv p{margin:0;font-size:15px;color:var(--tinta-2);line-height:1.5}
+.serv .mono{color:var(--verde)}
+.serv.forte{background:var(--verde);color:var(--branco)}
+.serv.forte p{color:#D5E8DB}
+.serv.forte .ic{background:var(--amarelo);color:var(--verde-noite)}
+.serv.forte .mono{color:var(--amarelo)}
+.marcas{display:flex;flex-wrap:wrap;align-items:center;gap:10px 14px;margin-top:28px}
+.marcas .mono{color:var(--tinta-2)}
+.marcas b{font-family:var(--f-display);font-stretch:80%;font-weight:800;text-transform:uppercase;font-size:1.05rem;padding:6px 12px;border:1px solid var(--linha);border-radius:var(--raio)}
+.serv-largo{grid-column:span 2}
+@media (max-width:1080px){.serv-grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media (max-width:700px){.serv-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.serv{padding:20px 16px}.serv h3{font-size:1.1rem}}
+
+/* VERDE */
+.verde{background:var(--verde-fundo);color:var(--branco)}
+.verde .eyebrow{color:var(--amarelo)}
+.verde .sec-head p,.verde .lead{color:#CFE3D6}
+.verde .destaque{color:var(--amarelo)}
+
+/* BANCADA (1 grande + 4 pequenas, todas 4:5) */
+.bancada-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:20px}
+.foto{margin:0;min-width:0}
+.foto .moldura{position:relative;aspect-ratio:4/5;overflow:hidden;border-radius:var(--raio);background:var(--verde-noite)}
+.foto img{width:100%;height:100%;object-fit:cover;transition:transform .5s ease}
+.foto:hover img{transform:scale(1.03)}
+.foto figcaption{margin-top:12px;display:flex;flex-direction:column;gap:2px}
+.foto figcaption .mono{color:var(--amarelo)}
+.foto figcaption span:last-child{font-size:15px}
+.foto.grande{grid-column:span 2;grid-row:span 2;display:flex;flex-direction:column}
+.foto.grande .moldura{aspect-ratio:auto;flex:1;min-height:0}
+.foto.grande figcaption span:last-child{font-size:1.05rem;font-weight:600}
+@media (max-width:860px){
+  .bancada-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+  .foto.grande{grid-column:span 2;grid-row:auto}
+  .foto.grande .moldura{aspect-ratio:4/5;flex:none}
+}
+
+/* CARROSSEL */
+.carrossel{min-width:0}
+.trilho{display:grid;grid-auto-flow:column;grid-auto-columns:calc((100% - 60px)/4);gap:20px;overflow-x:auto;scroll-snap-type:x mandatory;scroll-behavior:smooth;scrollbar-width:none;overscroll-behavior-x:contain;border-radius:var(--raio)}
+.trilho::-webkit-scrollbar{display:none}
+.trilho .foto{scroll-snap-align:start;min-width:0}
+.trilho .foto figcaption span:last-child{font-size:15px}
+.car-ctrl{display:flex;align-items:center;gap:14px;margin-top:28px}
+.car-prog{flex:1;height:3px;background:rgba(255,255,255,.18);border-radius:2px;overflow:hidden}
+.car-prog b{display:block;height:100%;width:100%;background:var(--amarelo);transform-origin:left;transform:scaleX(.1);transition:transform .25s ease}
+.car-num{color:#CFE3D6;font-variant-numeric:tabular-nums;min-width:62px;text-align:right}
+.car-btn{width:52px;height:52px;border-radius:50%;border:2px solid rgba(255,255,255,.4);background:transparent;color:var(--branco);display:grid;place-items:center;cursor:pointer;transition:background-color .15s,border-color .15s}
+.car-btn svg{width:22px;height:22px}
+.car-btn:hover:not(:disabled){background:var(--amarelo);border-color:var(--amarelo);color:var(--verde-noite)}
+.car-btn:disabled{opacity:.35;cursor:default}
+@media (max-width:1000px){.trilho{grid-auto-columns:calc((100% - 40px)/2.4)}}
+@media (max-width:600px){.trilho{grid-auto-columns:80%;gap:14px}}
+
+/* VÍDEOS */
+.videos{background:var(--verde-noite);color:var(--branco)}
+.videos .eyebrow{color:var(--amarelo)}
+.videos .sec-head p{color:#CFE3D6}
+.videos .destaque{color:var(--amarelo)}
+.videos .foto figcaption .mono{color:var(--amarelo)}
+.foto.video .moldura{aspect-ratio:9/16;background:#000}
+.foto.video video{width:100%;height:100%;object-fit:cover;display:block;cursor:pointer}
+
+/* FLYERS */
+.flyers{background:var(--verde-noite);color:var(--branco)}
+.flyers .eyebrow{color:var(--amarelo)}
+.flyers .sec-head p{color:#CFE3D6}
+.flyers .destaque{color:var(--amarelo)}
+.flyer-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:28px;max-width:1040px}
+.flyer{display:block;padding:0;border:0;background:#0B1A10;border-radius:var(--raio);overflow:hidden;cursor:zoom-in;box-shadow:0 18px 40px rgba(0,0,0,.35);transition:transform .25s ease}
+.flyer:hover{transform:translateY(-4px)}
+.flyer img{width:100%;height:auto;display:block}
+.flyer-solo{max-width:460px;width:100%}
+@media (max-width:700px){
+  .flyer-grid{grid-template-columns:none;grid-auto-flow:column;grid-auto-columns:84%;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;gap:14px}
+  .flyer-grid::-webkit-scrollbar{display:none}
+  .flyer-grid .flyer{scroll-snap-align:start}
+}
+.zoom{border:0;padding:0;background:transparent;max-width:min(94vw,900px);max-height:94vh;overflow:visible}
+.zoom::backdrop{background:rgba(6,20,12,.88)}
+.zoom img{max-width:100%;max-height:90vh;width:auto;height:auto;display:block;border-radius:var(--raio)}
+.zoom-fechar{position:absolute;top:-14px;right:-14px;width:48px;height:48px;border-radius:50%;border:0;background:var(--amarelo);color:var(--verde-noite);font-size:28px;line-height:1;cursor:pointer;box-shadow:0 4px 12px rgba(0,0,0,.4)}
+
+/* QUEM ESTÁ POR TRÁS */
+.sobre{background:var(--verde-noite);color:var(--branco);position:relative;overflow:hidden}
+.sobre::before{content:"";position:absolute;inset:0 0 auto 0;height:6px;background:var(--amarelo)}
+.sobre-grid{display:grid;grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr);gap:72px;align-items:start}
+.sobre-foto{position:sticky;top:110px}
+.sobre-foto figure{margin:0;position:relative}
+.sobre-foto img{width:100%;height:auto;aspect-ratio:4/5;object-fit:cover;border-radius:var(--raio);box-shadow:0 24px 50px rgba(0,0,0,.35)}
+.sobre-foto figcaption{display:flex;align-items:stretch;gap:12px;margin-top:-56px;padding-inline:16px;position:relative}
+.sobre-selo{background:var(--amarelo);color:var(--verde-noite);border-radius:var(--raio);padding:12px 16px;display:flex;align-items:center;gap:10px;box-shadow:0 10px 24px rgba(0,0,0,.3)}
+.sobre-selo strong{font-family:var(--f-display);font-stretch:70%;font-weight:900;font-size:3.2rem;line-height:.8}
+.sobre-selo span{font-family:var(--f-mono);font-size:11.5px;letter-spacing:.08em;text-transform:uppercase;font-weight:600;line-height:1.25}
+.sobre-nome{background:var(--branco);color:var(--tinta);border-radius:var(--raio);padding:12px 16px;display:flex;flex-direction:column;justify-content:center;flex:1;min-width:0;box-shadow:0 10px 24px rgba(0,0,0,.3)}
+.sobre-nome b{font-family:var(--f-display);font-stretch:80%;font-weight:900;text-transform:uppercase;font-size:1.5rem;line-height:1}
+.sobre-nome .mono{color:var(--verde);margin-top:4px;font-size:11px}
+.sobre-texto{min-width:0;max-width:62ch}
+.sobre-texto .eyebrow{color:var(--amarelo)}
+.sobre-texto h2{font-size:clamp(2.2rem,4.6vw,3.8rem)}
+.sobre-texto .destaque{color:var(--amarelo)}
+.sobre-texto p{color:#D5E8DB;font-size:1.06rem;line-height:1.7;margin:0 0 18px}
+.sobre-texto .sobre-abre{color:var(--branco);font-size:1.22rem;line-height:1.6;margin-top:28px;font-weight:500}
+.sobre-citacao{margin:30px 0;padding:22px 24px;background:rgba(255,255,255,.06);border-radius:var(--raio);border-top:3px solid var(--amarelo);font-family:var(--f-display);font-stretch:88%;font-weight:700;font-size:clamp(1.25rem,2.2vw,1.55rem);line-height:1.3;color:var(--branco)}
+.sobre-tags{list-style:none;padding:0;margin:4px 0 30px;display:flex;flex-wrap:wrap;gap:8px}
+.sobre-tags li{font-family:var(--f-mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;font-weight:600;padding:8px 12px;border:1px solid rgba(245,183,29,.5);color:var(--amarelo);border-radius:999px}
+.sobre-cta{background:var(--branco);color:var(--tinta);border-radius:var(--raio);padding:24px;display:grid;gap:18px}
+.sobre-cta p{color:var(--tinta-2);margin:0;font-size:1.02rem}
+.sobre-cta strong{color:var(--tinta)}
+.sobre-cta .btn{justify-self:start}
+.sobre-assina{display:flex;align-items:center;gap:14px;margin-top:28px!important;padding-top:22px;border-top:1px solid rgba(255,255,255,.15)}
+.sobre-assina img{width:48px;height:48px;border-radius:50%;background:var(--branco);flex:none}
+.sobre-assina b{color:var(--branco);font-family:var(--f-display);font-stretch:85%;text-transform:uppercase;letter-spacing:.02em}
+@media (max-width:900px){
+  .sobre-grid{grid-template-columns:1fr;gap:56px}
+  .sobre-foto{position:static;max-width:460px}
+}
+@media (max-width:520px){
+  .sobre-cta{padding:20px}
+  .sobre-cta .btn{justify-self:stretch}
+  .sobre-selo strong{font-size:2.6rem}
+  .sobre-nome b{font-size:1.25rem}
+}
+
+/* STARLINK (branco, 1 grande + 2 menores) */
+.starlink-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:56px;align-items:start}
+.sl-fotos{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+.sl-fotos .foto.grande{grid-column:span 2;grid-row:auto}
+.sl-fotos .foto.grande .moldura{aspect-ratio:4/5}
+.starlink .foto figcaption .mono{color:var(--verde)}
+.starlink .foto figcaption span:last-child{color:var(--tinta-2)}
+.lista-check{list-style:none;margin:28px 0 0;padding:0;display:grid;gap:0;border-top:1px solid var(--linha)}
+.lista-check li{display:grid;grid-template-columns:34px minmax(0,1fr);gap:14px;padding:18px 0;border-bottom:1px solid var(--linha)}
+.lista-check svg{width:28px;height:28px;color:var(--verde);margin-top:2px}
+.lista-check strong{display:block;font-family:var(--f-display);font-stretch:80%;text-transform:uppercase;font-size:1.2rem;font-weight:800;line-height:1.1;margin-bottom:4px}
+.lista-check span{color:var(--tinta-2);font-size:15.5px}
+@media (max-width:900px){.starlink-grid{grid-template-columns:1fr;gap:40px}.sl-fotos{max-width:560px}}
+
+/* STEP UP (amarelo) */
+.amarelo{background:var(--amarelo);color:var(--verde-noite)}
+.amarelo .eyebrow{color:var(--verde-noite)}
+.stepup-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:56px;align-items:center}
+.volts{display:grid;grid-template-columns:minmax(0,1fr) auto minmax(0,1fr);align-items:center;gap:12px;background:var(--verde-noite);color:var(--branco);border-radius:var(--raio);padding:36px 28px 30px}
+.volts .v{font-family:var(--f-display);font-stretch:70%;font-weight:900;font-size:clamp(3.4rem,7vw,6rem);line-height:.85;text-align:center;min-width:0}
+.volts .v small{display:block;font-family:var(--f-mono);font-size:12px;letter-spacing:.12em;font-weight:500;color:#A9C7B4;margin-top:14px}
+.volts .v.de{color:var(--laranja)}
+.volts .v.para{color:var(--amarelo)}
+.volts .seta{width:56px;height:56px;color:var(--branco)}
+.volts .rodape-v{grid-column:1/-1;border-top:1px dashed rgba(255,255,255,.25);padding-top:16px;margin-top:14px;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;color:#CFE3D6}
+.volts .rodape-v .ok{display:inline-flex;align-items:center;gap:8px;color:var(--branco)}
+.volts .rodape-v .ok i{width:9px;height:9px;border-radius:50%;background:var(--ok)}
+.feats{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px 24px;margin:26px 0 0;padding:0;list-style:none}
+.feats li{display:flex;gap:10px;align-items:flex-start;font-weight:600;line-height:1.35}
+.feats svg{width:22px;height:22px;flex:none;color:var(--verde)}
+.ideal{margin-top:28px}
+.ideal .chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
+.ideal .chips span{background:var(--branco);border-radius:999px;padding:7px 14px;font-weight:700;font-size:14px}
+@media (max-width:900px){.stepup-grid{grid-template-columns:1fr;gap:36px}}
+@media (max-width:460px){.feats{grid-template-columns:1fr}.volts{padding:28px 14px 24px}.volts .seta{width:36px;height:36px}}
+
+/* FOTO GRANDE (sem zoom: foto em tamanho próximo do original, ao lado do texto) */
+.panorama-grid{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:64px;align-items:center}
+.panorama-grid .foto{max-width:520px}
+.panorama h2{font-size:clamp(2rem,4.2vw,3.4rem)}
+.panorama h2 em{font-style:normal;color:var(--amarelo)}
+.numeros{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin-top:36px}
+.numeros div{min-width:0;padding:4px 16px;border-left:2px solid var(--amarelo)}
+.numeros strong{display:block;font-family:var(--f-display);font-stretch:72%;font-weight:900;font-size:clamp(1.7rem,2.6vw,2.4rem);line-height:1;white-space:nowrap}
+.numeros span{display:block;font-size:14px;color:#CFE3D6;margin-top:6px;line-height:1.35}
+@media (max-width:900px){.panorama-grid{grid-template-columns:1fr;gap:40px}}
+@media (max-width:480px){.numeros{grid-template-columns:1fr;gap:18px}}
+
+/* COMO FUNCIONA + MONITOR */
+.processo-grid{display:grid;grid-template-columns:minmax(0,.95fr) minmax(0,1.05fr);gap:64px;align-items:center}
+.monitor{background:#1B1F1C;border-radius:22px;padding:16px 16px 14px;box-shadow:0 22px 50px rgba(6,56,29,.25),inset 0 0 0 2px #2D332F}
+.tela{position:relative;aspect-ratio:4/3;border-radius:10px;overflow:hidden;background:var(--verde-noite);color:#E8F5EC;font-family:var(--f-mono)}
+.tela::before{content:"";position:absolute;inset:-40%;background:repeating-linear-gradient(115deg,transparent 0 46px,rgba(245,183,29,.10) 46px 48px);pointer-events:none}
+.tela .topo-tela{position:absolute;inset:0 0 auto 0;display:flex;justify-content:space-between;padding:12px 16px;font-size:11px;letter-spacing:.1em;color:#9DC2AA;border-bottom:1px solid rgba(255,255,255,.08);background:rgba(0,0,0,.25)}
+.estado{position:absolute;inset:44px 16px 16px 16px;display:flex;flex-direction:column;justify-content:space-between;opacity:0;transition:opacity .6s ease}
+.estado.ativo{opacity:1}
+.status{display:flex;align-items:center;gap:12px;font-size:clamp(15px,2vw,19px);font-weight:600;letter-spacing:.06em}
+.status i{width:14px;height:14px;border-radius:50%;flex:none}
+.e1 .status i{background:var(--erro);animation:pisca 1s steps(2,start) infinite}
+.e2 .status i{background:var(--amarelo)}
+.e3 .status i{background:var(--ok);box-shadow:0 0 0 5px rgba(52,199,89,.2)}
+@keyframes pisca{to{opacity:.15}}
+.dados{display:grid;grid-template-columns:auto 1fr;gap:8px 18px;font-size:clamp(12px,1.5vw,14px)}
+.dados dt{color:#8FB39C}
+.dados dd{margin:0;color:#fff;text-align:right}
+.barra{height:10px;background:rgba(255,255,255,.1);border-radius:3px;overflow:hidden}
+.barra b{display:block;height:100%;background:var(--amarelo);transform-origin:left;transition:transform 1.2s ease}
+.e1 .barra b{transform:scaleX(.05);background:var(--erro)}
+.e2 .barra b{transform:scaleX(.55)}
+.e3 .barra b{transform:scaleX(1);background:var(--ok)}
+.monitor .base{display:flex;justify-content:space-between;align-items:center;padding:12px 6px 0;color:#7E8A82}
+.monitor .base i{width:8px;height:8px;border-radius:50%;background:var(--ok);display:inline-block}
+.passos{list-style:none;margin:32px 0 0;padding:0;counter-reset:p}
+.passos li{display:grid;grid-template-columns:64px minmax(0,1fr);gap:18px;padding:20px 0;border-top:1px solid var(--linha)}
+.passos li:last-child{border-bottom:1px solid var(--linha)}
+.passos li::before{counter-increment:p;content:"0" counter(p);font-family:var(--f-display);font-stretch:70%;font-weight:900;font-size:2.6rem;line-height:.9;color:var(--verde)}
+.passos strong{display:block;font-family:var(--f-display);font-stretch:80%;text-transform:uppercase;font-weight:800;font-size:1.3rem;line-height:1.1}
+.passos span{color:var(--tinta-2);font-size:15.5px}
+@media (max-width:900px){.processo-grid{grid-template-columns:1fr;gap:44px}.monitor{max-width:560px}}
+
+/* PREVENÇÃO (amarelo) */
+.prev-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:48px;align-items:center}
+.prev-lista{display:grid;grid-template-columns:1fr;gap:12px}
+.prev-lista div{background:var(--branco);border-radius:var(--raio);padding:20px 22px;display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:8px 20px;align-items:center}
+.prev-lista strong{display:block;font-family:var(--f-display);font-stretch:78%;text-transform:uppercase;font-weight:900;font-size:1.4rem;line-height:1;color:var(--verde)}
+.prev-lista span{display:block;margin:0;font-size:14.5px;color:var(--tinta-2);line-height:1.4}
+@media (max-width:900px){.prev-grid{grid-template-columns:1fr}}
+@media (max-width:560px){.prev-lista div{grid-template-columns:1fr}}
+
+/* QUEM ATENDE */
+.ceo-grid{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:64px;align-items:center}
+.ceo-grid .foto figcaption .mono{color:var(--verde)}
+.ceo-grid .foto figcaption span:last-child{color:var(--tinta-2)}
+.objecoes{margin-top:32px;display:grid;gap:0;border-top:2px solid var(--tinta)}
+.objecao{padding:20px 0;border-bottom:1px solid var(--linha)}
+.objecao q{display:block;font-family:var(--f-display);font-stretch:85%;font-weight:700;font-size:1.25rem;font-style:italic;line-height:1.2;quotes:"“" "”"}
+.objecao p{margin:8px 0 0;color:var(--tinta-2)}
+@media (max-width:900px){.ceo-grid{grid-template-columns:1fr;gap:40px}.ceo-grid .foto{max-width:460px}}
+
+/* DÚVIDAS */
+.duvidas{background:var(--papel)}
+.faq{max-width:860px;border-top:2px solid var(--tinta)}
+.faq details{border-bottom:1px solid var(--linha)}
+.faq summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;gap:20px;align-items:center;padding:22px 0;font-weight:700;font-size:1.1rem;min-height:48px}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";font-family:var(--f-mono);font-size:1.5rem;color:var(--verde);transition:transform .2s}
+.faq details[open] summary::after{transform:rotate(45deg)}
+.faq details p{margin:0 0 22px;color:var(--tinta-2);max-width:65ch}
+
+/* LOCALIZAÇÃO */
+.local-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px;align-items:start}
+.local-grid .foto figcaption .mono{color:var(--verde)}
+.local-grid .foto figcaption span:last-child{color:var(--tinta-2)}
+.local-grid .horario{border:1px solid var(--linha);aspect-ratio:auto}
+.mapa{display:block;text-decoration:none}
+.mapa-svg{position:absolute;inset:0;width:100%;height:100%}
+.m-fundo{fill:#E9EEE6}
+.m-quadra rect{fill:#F8FAF6;stroke:#DCE3D9;stroke-width:1}
+.m-praca{fill:#CFE5D3}
+.m-rua path{stroke:#FFFFFF;stroke-width:16;fill:none}
+.m-av{stroke:#FFFFFF;stroke-width:30;fill:none}
+.m-av-centro{stroke:var(--amarelo);stroke-width:3;stroke-dasharray:14 10;fill:none}
+.m-label{font-family:var(--f-mono);font-size:12px;letter-spacing:.14em;fill:var(--tinta-2);font-weight:600}
+.m-norte circle{fill:#FFFFFF;stroke:#DCE3D9}
+.m-norte path{fill:var(--verde)}
+.m-norte text{font-family:var(--f-mono);font-size:10px;fill:var(--tinta-2)}
+.pino{position:absolute;width:0;height:0}
+.marcador{position:absolute;left:-26px;top:-64px;width:52px;height:52px;border-radius:50% 50% 50% 0;transform:rotate(-45deg);
+  background:radial-gradient(circle at 30% 28%,#3FB46B 0,var(--verde) 45%,var(--verde-noite) 100%);
+  box-shadow:inset -4px -5px 8px rgba(0,0,0,.35),inset 3px 4px 6px rgba(255,255,255,.35),0 6px 14px rgba(6,56,29,.45);
+  display:grid;place-items:center;animation:quica 2.4s ease-in-out infinite}
+.marcador img{width:34px;height:34px;border-radius:50%;background:#fff;transform:rotate(45deg);box-shadow:0 1px 3px rgba(0,0,0,.3)}
+.sombra{position:absolute;left:-14px;top:-5px;width:28px;height:10px;border-radius:50%;background:rgba(6,56,29,.35);animation:sombra 2.4s ease-in-out infinite}
+.pulso{position:absolute;left:-40px;top:-40px;width:80px;height:80px;border-radius:50%;background:rgba(12,109,55,.35);border:2px solid var(--verde);transform:scale(.2);opacity:0;animation:pulso 2.4s ease-out infinite}
+.pulso.p2{animation-delay:1.2s}
+@keyframes pulso{0%{transform:scale(.2);opacity:.9}100%{transform:scale(1.6);opacity:0}}
+@keyframes quica{0%,100%{transform:rotate(-45deg) translate(0,0)}50%{transform:rotate(-45deg) translate(4px,-4px)}}
+@keyframes sombra{0%,100%{transform:scale(1);opacity:1}50%{transform:scale(.8);opacity:.6}}
+.mapa:hover .m-fundo{fill:#E2E9DE}
+@media (prefers-reduced-motion:reduce){.pulso{opacity:.35;transform:scale(1)}}
+@media (max-width:1000px){.local-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.local-grid .horario{grid-column:span 2}}
+@media (max-width:620px){.local-grid{grid-template-columns:1fr}.local-grid .horario{grid-column:auto}}
+
+/* CONTATO */
+.contato-grid{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);gap:56px;align-items:start}
+.cards-contato{display:grid;gap:14px}
+.cc{display:grid;grid-template-columns:44px minmax(0,1fr) auto;gap:14px;align-items:center;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.14);border-radius:var(--raio);padding:16px}
+.cc svg{width:26px;height:26px;color:var(--amarelo)}
+.cc .mono{color:#A9C7B4;display:block}
+.cc strong{font-size:1.1rem;word-break:break-word}
+.copiar{font-family:var(--f-mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;background:transparent;color:var(--branco);border:1px solid rgba(255,255,255,.35);border-radius:4px;padding:10px 12px;min-height:40px;cursor:pointer}
+.copiar:hover{border-color:var(--amarelo);color:var(--amarelo)}
+.horario{background:var(--branco);color:var(--tinta);border-radius:var(--raio);padding:28px}
+.horario h3{font-size:1.5rem;display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap}
+.agora{font-family:var(--f-mono);font-size:12px;letter-spacing:.08em;font-weight:600;padding:6px 10px;border-radius:999px;display:inline-flex;align-items:center;gap:8px;background:var(--verde-claro);color:var(--verde)}
+.agora i{width:8px;height:8px;border-radius:50%;background:var(--ok)}
+.agora.fechado{background:#FBE9E9;color:#A12A2E}
+.agora.fechado i{background:var(--erro)}
+.horario table{width:100%;border-collapse:collapse;margin-top:18px;font-variant-numeric:tabular-nums}
+.horario td{padding:11px 0;border-bottom:1px solid var(--linha)}
+.horario td:last-child{text-align:right;font-family:var(--f-mono);font-size:14px}
+.horario tr.hoje td{font-weight:800;color:var(--verde)}
+.horario tr.hoje td:first-child::after{content:" · hoje";font-weight:600;font-size:13px}
+.horario .end{margin-top:22px;font-size:15px;color:var(--tinta-2)}
+.horario .end strong{color:var(--tinta);display:block;font-size:1.05rem}
+.horario .btn{width:100%;margin-top:18px}
+@media (max-width:900px){.contato-grid{grid-template-columns:1fr}}
+@media (max-width:420px){.cc{grid-template-columns:36px minmax(0,1fr)}.cc .copiar{grid-column:2;justify-self:start}}
+
+/* RODAPÉ */
+footer{background:var(--verde-noite);color:#CFE3D6;padding-block:48px 120px}
+footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:24px;align-items:center}
+footer .logo-box{background:var(--branco);border-radius:var(--raio);padding:10px 14px}
+footer .logo-box img{height:44px;width:auto}
+footer p{margin:0;font-size:14px}
+@media (min-width:861px){footer{padding-block:48px}}
+
+/* BARRA FIXA MOBILE */
+.barra-fixa{position:fixed;left:0;right:0;bottom:0;z-index:50;padding:12px 16px calc(12px + env(safe-area-inset-bottom,0px));background:var(--branco);border-top:1px solid var(--linha);transform:translateY(110%);transition:transform .3s ease}
+.barra-fixa.mostrar{transform:none}
+.barra-fixa .btn{width:100%}
+@media (min-width:861px){.barra-fixa{display:none}}
+
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{transition:none!important;animation:none!important}
+  html{scroll-behavior:auto}
+}
+</style>
+</head>
+<body>
+
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="i-zap" viewBox="0 0 24 24"><path fill="currentColor" d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></symbol>
+    <symbol id="i-monitor" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="13" rx="2"/><path d="M9 21h6M12 17v4M7 13l3-3 2 2 4-4"/></g></symbol>
+    <symbol id="i-gps" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 15a8 8 0 0 1 16 0z"/><path d="M3 15h18M12 7V3M8.5 4.5 7 3M15.5 4.5 17 3"/><path d="M6 15v3h12v-3"/></g></symbol>
+    <symbol id="i-volante" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="2.5"/><path d="M3.5 10.5 9.6 11M14.4 11l6.1-.5M12 14.5V21"/></g></symbol>
+    <symbol id="i-chip" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><rect x="6" y="6" width="12" height="12" rx="1.5"/><rect x="9.5" y="9.5" width="5" height="5"/><path d="M9 2v4M15 2v4M9 18v4M15 18v4M2 9h4M2 15h4M18 9h4M18 15h4"/></g></symbol>
+    <symbol id="i-ecu" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="6" width="18" height="12" rx="1.5"/><path d="M7 10h4M7 14h2M14 10h3v4h-3z"/></g></symbol>
+    <symbol id="i-plant" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7h18M6 7v6M10 7v6M14 7v6M18 7v6"/><circle cx="6" cy="16" r="1.6"/><circle cx="10" cy="16" r="1.6"/><circle cx="14" cy="16" r="1.6"/><circle cx="18" cy="16" r="1.6"/><path d="M4 21h16"/></g></symbol>
+    <symbol id="i-cabo" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20c0-6 4-6 8-8s8-2 8-8"/><rect x="2" y="17" width="5" height="4" rx="1"/><rect x="17" y="3" width="5" height="4" rx="1"/></g></symbol>
+    <symbol id="i-floco" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M12 2v20M3.3 7l17.4 10M3.3 17 20.7 7M9 4l3 3 3-3M9 20l3-3 3 3"/></g></symbol>
+    <symbol id="i-satelite" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 14 14 4l6 6-10 10z"/><path d="M9 19l-4 3M14 4l-2-2M20 10l2 2"/><path d="M15 15a4 4 0 0 0-4-4"/></g></symbol>
+    <symbol id="i-celular" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><rect x="6" y="2" width="12" height="20" rx="2.5"/><path d="M11 18h2"/></g></symbol>
+    <symbol id="i-antena" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 16a7 7 0 0 1 14 0v2H5z"/><path d="M8 11.5c1-1 2.4-1.5 4-1.5s3 .5 4 1.5M3 21h18"/></g></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9.5"/><path d="m8 12.5 2.8 2.8L16.5 9.5"/></g></symbol>
+    <symbol id="i-seta" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M4 12h16M14 6l6 6-6 6"/></symbol>
+    <symbol id="i-pin" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s7-6.2 7-12a7 7 0 0 0-14 0c0 5.8 7 12 7 12z"/><circle cx="12" cy="10" r="2.5"/></g></symbol>
+    <symbol id="i-insta" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.3" cy="6.7" r=".9" fill="currentColor"/></g></symbol>
+  </defs>
+</svg>
+
+<header class="topo">
+  <div class="wrap">
+    <a href="#inicio" aria-label="Agro Lion, início"><img src="img/logo.png" alt="Agro Lion" width="740" height="334"></a>
+    <nav aria-label="Principal">
+      <a href="#servicos">Serviços</a>
+      <a href="#starlink">Starlink</a>
+      <a href="#processo">Como funciona</a>
+      <a href="#duvidas">Dúvidas</a>
+      <a href="#contato">Contato</a>
+    </nav>
+    <a class="btn btn-verde js-wa" href="#" data-event="whatsapp_diagnostico" data-origem="topo"><svg aria-hidden="true"><use href="#i-zap"/></svg><span>Diagnóstico</span></a>
+  </div>
+</header>
+
+<main id="inicio">
+
+<!-- HERO -->
+<section class="hero" id="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <p class="eyebrow destaque">Especialista em tecnologia agrícola · Rondonópolis-MT</p>
+      <h1>Monitor, GPS ou Starlink parado? <span class="l2">A gente coloca de volta no campo.</span></h1>
+      <p class="lead">Reparo de monitores agrícolas, receptores GPS, antenas, pilotos automáticos, módulo ECU e Starlink. Atendimento na sua fazenda ou no nosso laboratório em Rondonópolis.</p>
+      <div class="hero-ctas">
+        <a class="btn btn-verde js-wa" href="#" data-event="whatsapp_diagnostico" data-origem="hero"><svg aria-hidden="true"><use href="#i-zap"/></svg>Solicitar meu diagnóstico</a>
+        <a class="link-seta" href="#servicos">Ver o que consertamos ↓</a>
+      </div>
+      <div class="provas">
+        <div><strong>+30 mil</strong><span>equipamentos reparados</span></div>
+        <div><strong>Campo</strong><span>e laboratório próprio com bancada de teste</span></div>
+        <div><strong>Garantia</strong><span>qualidade e preço justo em cada serviço</span></div>
+      </div>
+    </div>
+    <div class="hero-foto">
+      <figure>
+        <img src="img/ceo-campo.jpg" alt="Técnico da Agro Lion subindo na colheitadeira com a maleta de ferramentas, sobre a terra vermelha" width="800" height="1000" fetchpriority="high">
+        <figcaption class="mono"><span>Atendimento em campo</span><span>Rondonópolis e região</span></figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<div class="faixa" role="presentation">
+  <div class="wrap">
+    <ul>
+      <li>Monitores</li><li>GPS agrícola</li><li>Antenas</li><li>Piloto automático</li><li>Módulo ECU</li><li>Starlink</li><li>Celulares</li>
+    </ul>
+  </div>
+</div>
+
+<!-- SERVIÇOS -->
+<section class="servicos" id="servicos">
+  <div class="wrap">
+    <div class="sec-head">
+      <div>
+        <p class="eyebrow destaque">O que consertamos</p>
+        <h2>Se é eletrônica agrícola, passa pela nossa bancada.</h2>
+      </div>
+      <p>Diagnóstico com osciloscópio, microscópio e fonte de bancada. A gente encontra a causa real e mantém o seu equipamento original sempre que dá.</p>
+    </div>
+    <div class="serv-grid">
+      <article class="serv forte">
+        <div class="ic"><svg aria-hidden="true"><use href="#i-monitor"/></svg></div>
+        <span class="mono">Ficha 01</span>
+        <h3>Monitores agrícolas</h3>
+        <p>Tela apagada, touch sem resposta, troca de LCD, travamento ao iniciar e oxidação.</p>
+      </article>
+      <article class="serv">
+        <div class="ic"><svg aria-hidden="true"><use href="#i-gps"/></svg></div>
+        <span class="mono">Ficha 02</span>
+        <h3>GPS e receptores</h3>
+        <p>Perda de sinal, falha de correção e sinal instável no meio da passada.</p>
+      </article>
+      <article class="serv serv-largo">
+        <div class="ic"><svg aria-hidden="true"><use href="#i-plant"/></svg></div>
+        <span class="mono">Ficha 03</span>
+        <h3>Revisão em linhas de plantadeira</h3>
+        <p>Revisão de chicotes, conectores e sensores linha por linha antes do plantio, para a plantadeira sair redonda para a safra.</p>
+      </article>
+      <article class="serv">
+        <div class="ic"><svg aria-hidden="true"><use href="#i-antena"/></svg></div>
+        <span class="mono">Ficha 04</span>
+        <h3>Carcaça de antena</h3>
+        <p>Substituição de carcaça danificada e remoção do líquido gel, como na StarFire 3000.</p>
+      </article>
+      <article class="serv">
+        <div class="ic"><svg aria-hidden="true"><use href="#i-volante"/></svg></div>
+        <span class="mono">Ficha 05</span>
+        <h3>Piloto automático</h3>
+        <p>Kits completos: monitor, piloto e antena funcionando juntos, com calibração.</p>
+      </article>
+      <article class="serv">
+        <div class="ic"><svg aria-hidden="true"><use href="#i-chip"/></svg></div>
+        <span class="mono">Ficha 06</span>
+        <h3>Reparo em placas</h3>
+        <p>Diagnóstico preciso e reparos avançados em placas eletrônicas agrícolas.</p>
+      </article>
+      <article class="serv">
+        <div class="ic"><svg aria-hidden="true"><use href="#i-ecu"/></svg></div>
+        <span class="mono">Ficha 07</span>
+        <h3>Módulo ECU</h3>
+        <p>Teste e reparo de módulos eletrônicos de máquinas agrícolas.</p>
+      </article>
+      <article class="serv">
+        <div class="ic"><svg aria-hidden="true"><use href="#i-cabo"/></svg></div>
+        <span class="mono">Ficha 08</span>
+        <h3>Chicote elétrico</h3>
+        <p>Montagem e reparo de chicotes, conectores e cabos de kits de agricultura de precisão.</p>
+      </article>
+      <article class="serv">
+        <div class="ic"><svg aria-hidden="true"><use href="#i-floco"/></svg></div>
+        <span class="mono">Ficha 09</span>
+        <h3>Ar-condicionado agrícola</h3>
+        <p>Reparo no sistema de ar-condicionado da cabine.</p>
+      </article>
+      <article class="serv forte">
+        <div class="ic"><svg aria-hidden="true"><use href="#i-satelite"/></svg></div>
+        <span class="mono">Ficha 10</span>
+        <h3>Starlink</h3>
+        <p>Venda, reparo, cases de proteção e fonte Step Up para uso em máquina e veículo.</p>
+      </article>
+      <article class="serv">
+        <div class="ic"><svg aria-hidden="true"><use href="#i-celular"/></svg></div>
+        <span class="mono">Ficha 11</span>
+        <h3>Celulares</h3>
+        <p>Assistência técnica e acessórios para o celular de quem está no campo.</p>
+      </article>
+    </div>
+    <div class="marcas">
+      <span class="mono">Já passaram pela bancada:</span>
+      <b>John Deere</b><b>Case IH</b><b>New Holland · CNH</b><b>Raven</b><b>Stara</b>
+    </div>
+  </div>
+</section>
+
+<!-- BANCADA / CARROSSEL -->
+<section class="verde" id="bancada">
+  <div class="wrap">
+    <div class="sec-head">
+      <div>
+        <p class="eyebrow">Do campo à bancada</p>
+        <h2>Onde a Agro Lion trabalha. <span class="destaque">Na lavoura e no laboratório.</span></h2>
+      </div>
+      <p>Tratores, plantadeiras, pulverizadores e os monitores e antenas que fazem tudo andar certo. Registros reais dos nossos atendimentos.</p>
+    </div>
+    <div class="carrossel">
+      <div class="trilho" tabindex="0" role="region" aria-label="Fotos dos atendimentos da Agro Lion. Use as setas para navegar.">
+        <figure class="foto"><div class="moldura"><img src="img/c01.jpg" alt="Em campo: Tratores John Deere prontos para o plantio" width="720" height="900" loading="eager"></div><figcaption><span class="mono">Em campo</span><span>Tratores John Deere prontos para o plantio</span></figcaption></figure>
+        <figure class="foto"><div class="moldura"><img src="img/c02.jpg" alt="Stara Topper 5500 VT: Monitor em operação na cabine" width="720" height="900" loading="eager"></div><figcaption><span class="mono">Stara Topper 5500 VT</span><span>Monitor em operação na cabine</span></figcaption></figure>
+        <figure class="foto"><div class="moldura"><img src="img/c03.jpg" alt="Plantio: Massey Ferguson 7415 com plantadeira" width="720" height="900" loading="eager"></div><figcaption><span class="mono">Plantio</span><span>Massey Ferguson 7415 com plantadeira</span></figcaption></figure>
+        <figure class="foto"><div class="moldura"><img src="img/c04.jpg" alt="GreenStar 3: Diagnóstico de erro no controlador de direção" width="720" height="900" loading="eager"></div><figcaption><span class="mono">GreenStar 3</span><span>Diagnóstico de erro no controlador de direção</span></figcaption></figure>
+        <figure class="foto"><div class="moldura"><img src="img/c05.jpg" alt="Receptores GPS: Antenas na bancada para reparo" width="720" height="900" loading="lazy"></div><figcaption><span class="mono">Receptores GPS</span><span>Antenas na bancada para reparo</span></figcaption></figure>
+        <figure class="foto"><div class="moldura"><img src="img/c06.jpg" alt="Pulverizador: Atendimento direto na fazenda" width="720" height="900" loading="lazy"></div><figcaption><span class="mono">Pulverizador</span><span>Atendimento direto na fazenda</span></figcaption></figure>
+        <figure class="foto"><div class="moldura"><img src="img/c07.jpg" alt="Cabine: Monitor Stara e piloto automático em uso" width="720" height="900" loading="lazy"></div><figcaption><span class="mono">Cabine</span><span>Monitor Stara e piloto automático em uso</span></figcaption></figure>
+        <figure class="foto"><div class="moldura"><img src="img/c08.jpg" alt="Monitores Stara: Na bancada para reparo" width="720" height="900" loading="lazy"></div><figcaption><span class="mono">Monitores Stara</span><span>Na bancada para reparo</span></figcaption></figure>
+        <figure class="foto"><div class="moldura"><img src="img/c09.jpg" alt="EZ-Guide 250: Teste de tela na bancada" width="720" height="900" loading="lazy"></div><figcaption><span class="mono">EZ-Guide 250</span><span>Teste de tela na bancada</span></figcaption></figure>
+        <figure class="foto"><div class="moldura"><img src="img/c10.jpg" alt="Massey Ferguson 7415: Atendimento na sede da fazenda" width="720" height="900" loading="lazy"></div><figcaption><span class="mono">Massey Ferguson 7415</span><span>Atendimento na sede da fazenda</span></figcaption></figure>
+        <figure class="foto"><div class="moldura"><img src="img/c11.jpg" alt="Diagnóstico em campo: Monitores e receptores StarFire" width="720" height="900" loading="lazy"></div><figcaption><span class="mono">Diagnóstico em campo</span><span>Monitores e receptores StarFire</span></figcaption></figure>
+        <figure class="foto"><div class="moldura"><img src="img/c12.jpg" alt="John Deere: Plantadeira no pátio da fazenda" width="720" height="900" loading="lazy"></div><figcaption><span class="mono">John Deere</span><span>Plantadeira no pátio da fazenda</span></figcaption></figure>
+        <figure class="foto"><div class="moldura"><img src="img/c13.jpg" alt="Topcon: Monitor na cabine do trator" width="720" height="900" loading="lazy"></div><figcaption><span class="mono">Topcon</span><span>Monitor na cabine do trator</span></figcaption></figure>
+        <figure class="foto"><div class="moldura"><img src="img/c14.jpg" alt="Frota: Colheitadeiras e trator no pátio" width="720" height="900" loading="lazy"></div><figcaption><span class="mono">Frota</span><span>Colheitadeiras e trator no pátio</span></figcaption></figure>
+        <figure class="foto"><div class="moldura"><img src="img/c15.jpg" alt="Plantio: Trator e plantadeira na lavoura" width="720" height="900" loading="lazy"></div><figcaption><span class="mono">Plantio</span><span>Trator e plantadeira na lavoura</span></figcaption></figure>
+        <figure class="foto"><div class="moldura"><img src="img/c16.jpg" alt="Atendimento: Caminhonete Agro Lion na fazenda" width="720" height="900" loading="lazy"></div><figcaption><span class="mono">Atendimento</span><span>Caminhonete Agro Lion na fazenda</span></figcaption></figure>
+        <figure class="foto"><div class="moldura"><img src="img/c17.jpg" alt="Em campo: Trator e plantadeira no pátio" width="720" height="900" loading="lazy"></div><figcaption><span class="mono">Em campo</span><span>Trator e plantadeira no pátio</span></figcaption></figure>
+        <figure class="foto"><div class="moldura"><img src="img/c18.jpg" alt="Plantio: Plantadeira Valtra na lavoura" width="720" height="900" loading="lazy"></div><figcaption><span class="mono">Plantio</span><span>Plantadeira Valtra na lavoura</span></figcaption></figure>
+        <figure class="foto"><div class="moldura"><img src="img/c19.jpg" alt="HiTech BP 1508 M: Plantadeira vista da cabine" width="720" height="900" loading="lazy"></div><figcaption><span class="mono">HiTech BP 1508 M</span><span>Plantadeira vista da cabine</span></figcaption></figure>
+        <figure class="foto"><div class="moldura"><img src="img/c20.jpg" alt="Em campo: Massey Ferguson 7415 na lavoura" width="720" height="900" loading="lazy"></div><figcaption><span class="mono">Em campo</span><span>Massey Ferguson 7415 na lavoura</span></figcaption></figure>
+        <figure class="foto"><div class="moldura"><img src="img/c21.jpg" alt="Auteq MPA2500: Monitor de plantio" width="720" height="900" loading="lazy"></div><figcaption><span class="mono">Auteq MPA2500</span><span>Monitor de plantio</span></figcaption></figure>
+        <figure class="foto"><div class="moldura"><img src="img/c22.jpg" alt="Massey Ferguson 7415: Atendimento na fazenda" width="720" height="900" loading="lazy"></div><figcaption><span class="mono">Massey Ferguson 7415</span><span>Atendimento na fazenda</span></figcaption></figure>
+        <figure class="foto"><div class="moldura"><img src="img/c23.jpg" alt="EZ-Guide 250 e FarmPRO MAX7: Monitores para reparo" width="720" height="900" loading="lazy"></div><figcaption><span class="mono">EZ-Guide 250 e FarmPRO MAX7</span><span>Monitores para reparo</span></figcaption></figure>
+      </div>
+      <div class="car-ctrl">
+        <div class="car-prog" aria-hidden="true"><b></b></div>
+        <span class="mono car-num" aria-live="polite">01 / 23</span>
+        <button class="car-btn car-ant" type="button" aria-label="Anterior"><svg aria-hidden="true" style="transform:rotate(180deg)"><use href="#i-seta"/></svg></button>
+        <button class="car-btn car-prox" type="button" aria-label="Próximo"><svg aria-hidden="true"><use href="#i-seta"/></svg></button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- QUEM ESTÁ POR TRÁS -->
+<section class="sobre" id="laion" aria-labelledby="t-sobre">
+  <div class="wrap sobre-grid">
+    <div class="sobre-foto">
+      <figure>
+        <img src="img/laion-lavoura.jpg" alt="Laion, à frente da Agro Lion, agachado na lavoura de terra vermelha com a camisa da empresa" width="900" height="1125" loading="lazy">
+        <figcaption>
+          <span class="sobre-selo"><strong>6</strong><span>anos em<br>microeletrônica</span></span>
+          <span class="sobre-nome"><b>Laion</b><span class="mono">À frente da Agro Lion</span></span>
+        </figcaption>
+      </figure>
+    </div>
+    <div class="sobre-texto">
+      <p class="eyebrow">Quem está por trás da Agro Lion</p>
+      <h2 id="t-sobre">Conhecimento na bancada. <span class="destaque">Presença no campo.</span></h2>
+      <p class="sobre-abre">Sou Laion e estou à frente da Agro LION. São 6 anos de experiência em microeletrônica e eletrônica embarcada, trabalhando com diagnóstico e reparo de equipamentos que fazem parte da rotina do produtor.</p>
+      <blockquote class="sobre-citacao">Sabemos que, quando um equipamento falha, o prejuízo pode ir além do conserto: é máquina parada, operação atrasada e uma janela de trabalho que não espera.</blockquote>
+      <p>Por isso, nosso compromisso começa com uma análise criteriosa para identificar a origem da falha e explicar com clareza o que precisa ser feito. Tratamos seu equipamento com responsabilidade e respeito pelo investimento que ele representa.</p>
+      <p>Atuamos com monitores, GPS, antenas, pilotos automáticos, chicotes, sensores de plantio e Starlink, com atendimento em campo e em laboratório, em Rondonópolis e região – MT.</p>
+      <ul class="sobre-tags" aria-label="Equipamentos atendidos">
+        <li>Monitores</li><li>GPS</li><li>Antenas</li><li>Pilotos automáticos</li><li>Chicotes</li><li>Sensores de plantio</li><li>Starlink</li>
+      </ul>
+      <div class="sobre-cta">
+        <p>Se você precisa de atendimento na fazenda ou deseja encaminhar seu equipamento para reparo, fale diretamente com nossa equipe. <strong>Envie uma foto e descreva o defeito: vamos orientar os próximos passos.</strong></p>
+        <a class="btn btn-amarelo js-wa" href="#" data-event="whatsapp_diagnostico" data-origem="sobre" data-msg="Olá, Agro Lion! Vou enviar a foto do equipamento. Equipamento: ___ | Defeito: ___ | Cidade/Fazenda: ___"><svg aria-hidden="true"><use href="#i-zap"/></svg>Enviar foto do defeito</a>
+      </div>
+      <p class="sobre-assina"><img src="img/selo.png" alt="" width="48" height="48" loading="lazy"><span><b>Agro LION</b> — Tecnologia que gera resultados.</span></p>
+    </div>
+  </div>
+</section>
+
+<!-- VÍDEOS -->
+<section class="videos" id="videos">
+  <div class="wrap">
+    <div class="sec-head">
+      <div>
+        <p class="eyebrow">Vídeos dos atendimentos</p>
+        <h2>A rotina da Agro Lion, <span class="destaque">sem cortes.</span></h2>
+      </div>
+      <p>Revisão de plantadeiras, teste de monitores e atendimento nas fazendas. Os vídeos tocam sem som enquanto aparecem na tela.</p>
+    </div>
+    <div class="carrossel">
+      <div class="trilho trilho-video" tabindex="0" role="region" aria-label="Vídeos dos atendimentos da Agro Lion. Use as setas para navegar.">
+        <figure class="foto video"><div class="moldura"><video muted loop playsinline preload="none" poster="vid/v1.jpg" aria-label="Pátio da fazenda: Atendimento no galpão de máquinas"><source src="vid/v1.mp4" type="video/mp4"></video></div><figcaption><span class="mono">Pátio da fazenda</span><span>Atendimento no galpão de máquinas</span></figcaption></figure>
+        <figure class="foto video"><div class="moldura"><video muted loop playsinline preload="none" poster="vid/v2.jpg" aria-label="Em campo: A caminho de mais um atendimento"><source src="vid/v2.mp4" type="video/mp4"></video></div><figcaption><span class="mono">Em campo</span><span>A caminho de mais um atendimento</span></figcaption></figure>
+        <figure class="foto video"><div class="moldura"><video muted loop playsinline preload="none" poster="vid/v3.jpg" aria-label="Massey Ferguson 7415: Trator com plantadeira na fazenda"><source src="vid/v3.mp4" type="video/mp4"></video></div><figcaption><span class="mono">Massey Ferguson 7415</span><span>Trator com plantadeira na fazenda</span></figcaption></figure>
+        <figure class="foto video"><div class="moldura"><video muted loop playsinline preload="none" poster="vid/v4.jpg" aria-label="Plantadeiras: 113 linhas: chicotes, conectores e sensores para revisar"><source src="vid/v4.mp4" type="video/mp4"></video></div><figcaption><span class="mono">Plantadeiras</span><span>113 linhas: chicotes, conectores e sensores para revisar</span></figcaption></figure>
+        <figure class="foto video"><div class="moldura"><video muted loop playsinline preload="none" poster="vid/v5.jpg" aria-label="Plantadeiras: Revisão antes do plantio"><source src="vid/v5.mp4" type="video/mp4"></video></div><figcaption><span class="mono">Plantadeiras</span><span>Revisão antes do plantio</span></figcaption></figure>
+        <figure class="foto video"><div class="moldura"><video muted loop playsinline preload="none" poster="vid/v6.jpg" aria-label="Medidor de umidade G1000: Teste na bancada"><source src="vid/v6.mp4" type="video/mp4"></video></div><figcaption><span class="mono">Medidor de umidade G1000</span><span>Teste na bancada</span></figcaption></figure>
+        <figure class="foto video"><div class="moldura"><video muted loop playsinline preload="none" poster="vid/v7.jpg" aria-label="Monitor na bancada: Teste da tela touch"><source src="vid/v7.mp4" type="video/mp4"></video></div><figcaption><span class="mono">Monitor na bancada</span><span>Teste da tela touch</span></figcaption></figure>
+      </div>
+      <div class="car-ctrl">
+        <div class="car-prog" aria-hidden="true"><b></b></div>
+        <span class="mono car-num" aria-live="polite">01 / 07</span>
+        <button class="car-btn car-ant" type="button" aria-label="Anterior"><svg aria-hidden="true" style="transform:rotate(180deg)"><use href="#i-seta"/></svg></button>
+        <button class="car-btn car-prox" type="button" aria-label="Próximo"><svg aria-hidden="true"><use href="#i-seta"/></svg></button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STARLINK -->
+<section class="starlink" id="starlink">
+  <div class="wrap starlink-grid">
+    <div>
+      <p class="eyebrow destaque">Starlink para o agro</p>
+      <h2>Internet na lavoura, na estrada e no rio.</h2>
+      <p class="lead">A gente vende, instala e conserta antenas Starlink. Tem reposição frequente da Starlink Mini e cases de proteção para deixar a antena firme na máquina.</p>
+      <ul class="lista-check">
+        <li><svg aria-hidden="true"><use href="#i-check"/></svg><div><strong>Venda de Starlink Mini</strong><span>Reposição constante na loja e entrega na mão do cliente.</span></div></li>
+        <li><svg aria-hidden="true"><use href="#i-check"/></svg><div><strong>Reparo de antenas</strong><span>Diagnóstico de bancada para antena que não liga, reinicia ou perde sinal.</span></div></li>
+        <li><svg aria-hidden="true"><use href="#i-check"/></svg><div><strong>Cases de proteção</strong><span>Cases personalizados, inclusive com a marca da sua empresa.</span></div></li>
+        <li><svg aria-hidden="true"><use href="#i-check"/></svg><div><strong>Fonte Step Up 12V para 30V</strong><span>Para ligar a Starlink Mini direto na bateria da máquina ou da caminhonete.</span></div></li>
+      </ul>
+      <div class="hero-ctas">
+        <a class="btn btn-verde js-wa" href="#" data-event="whatsapp_starlink" data-origem="starlink" data-msg="Olá, Agro Lion! Quero saber sobre Starlink. Interesse: ___ (compra / reparo / case / Step Up) | Cidade/Fazenda: ___"><svg aria-hidden="true"><use href="#i-zap"/></svg>Falar sobre Starlink</a>
+      </div>
+    </div>
+    <div class="sl-fotos">
+      <figure class="foto grande">
+        <div class="moldura"><img src="img/sl-caixas.jpg" alt="Caixas de Starlink Mini empilhadas no balcão da loja" width="800" height="1000" loading="lazy"></div>
+        <figcaption><span class="mono">Reposição Starlink Mini</span><span>Estoque na loja em Rondonópolis</span></figcaption>
+      </figure>
+      <figure class="foto">
+        <div class="moldura"><img src="img/sl-entrega.jpg" alt="Duas Starlink Mini no banco do carro prontas para entrega" width="800" height="1000" loading="lazy"></div>
+        <figcaption><span class="mono">Entrega</span><span>Mais duas saindo</span></figcaption>
+      </figure>
+      <figure class="foto">
+        <div class="moldura"><img src="img/sl-cases.jpg" alt="Cases de proteção para Starlink expostos na parede verde" width="800" height="1000" loading="lazy"></div>
+        <figcaption><span class="mono">Cases</span><span>Proteção para a antena</span></figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- STEP UP -->
+<section class="amarelo" id="stepup">
+  <div class="wrap stepup-grid">
+    <div>
+      <p class="eyebrow">Produto Agro Lion</p>
+      <h2>Starlink reiniciando ou desligando? Nunca mais.</h2>
+      <p class="lead" style="color:var(--verde-noite)">O Step Up converte os 12V da bateria em 30V estáveis para a Starlink Mini. Energia que leva você mais longe.</p>
+      <ul class="feats">
+        <li><svg aria-hidden="true"><use href="#i-check"/></svg>Converte 12V para 30V</li>
+        <li><svg aria-hidden="true"><use href="#i-check"/></svg>Instalação simplificada</li>
+        <li><svg aria-hidden="true"><use href="#i-check"/></svg>Proteção contra curto e sobrecarga</li>
+        <li><svg aria-hidden="true"><use href="#i-check"/></svg>Resistente a vibração e intempéries</li>
+        <li><svg aria-hidden="true"><use href="#i-check"/></svg>Testado individualmente</li>
+        <li><svg aria-hidden="true"><use href="#i-check"/></svg>Pronto para uso em campo</li>
+      </ul>
+      <div class="ideal">
+        <span class="mono">Ideal para</span>
+        <div class="chips"><span>Caminhonetes</span><span>Tratores</span><span>Pulverizadores</span><span>Colheitadeiras</span><span>Bateria 12V</span></div>
+      </div>
+    </div>
+    <div>
+      <div class="volts" role="img" aria-label="Entrada de 12 volts convertida em saída de 30 volts">
+        <div class="v de">12V<small>Bateria</small></div>
+        <svg class="seta" aria-hidden="true"><use href="#i-seta"/></svg>
+        <div class="v para">30V<small>Starlink Mini</small></div>
+        <div class="rodape-v mono"><span>Step Up Agro Lion</span><span class="ok"><i></i>Saída estável</span></div>
+      </div>
+      <div class="hero-ctas">
+        <a class="btn btn-verde js-wa" href="#" data-event="whatsapp_stepup" data-origem="stepup" data-msg="Olá, Agro Lion! Quero o Step Up 12V para 30V para Starlink Mini. Vou usar em: ___ | Cidade: ___"><svg aria-hidden="true"><use href="#i-zap"/></svg>Quero o Step Up</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PANORAMA -->
+<section class="panorama verde" aria-labelledby="t-campo">
+  <div class="wrap panorama-grid">
+    <figure class="foto">
+      <div class="moldura"><img src="img/colheita-ceo.jpg" alt="Laion Alves, da Agro Lion, de polegar para cima ao lado de duas colheitadeiras amarelas na fazenda" width="1086" height="1357" loading="lazy"></div>
+      <figcaption><span class="mono">Em campo · Rondonópolis e região</span><span>Serviço entregue e máquina de volta à colheita</span></figcaption>
+    </figure>
+    <div>
+      <p class="eyebrow">No campo</p>
+      <h2 id="t-campo">Na fazenda, ao lado de quem produz. <em>Tecnologia que gera resultado no campo.</em></h2>
+      <p class="lead">Quando a máquina não pode sair da lavoura, o técnico vai até ela. Diagnóstico e reparo no local, com o equipamento de teste na maleta.</p>
+      <div class="numeros">
+        <div><strong>+30 mil</strong><span>equipamentos reparados</span></div>
+        <div><strong>2 frentes</strong><span>atendimento no campo e na bancada</span></div>
+        <div><strong>6 dias</strong><span>de segunda a sábado</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- COMO FUNCIONA -->
+<section id="processo">
+  <div class="wrap processo-grid">
+    <div class="monitor" aria-hidden="true">
+      <div class="tela" id="tela">
+        <div class="topo-tela"><span>AGRO LION · DIAG</span><span>OS #0427</span></div>
+        <div class="estado e1">
+          <div class="status"><i></i>SINAL PERDIDO</div>
+          <dl class="dados"><dt>GNSS</dt><dd>0 satélites</dd><dt>Correção</dt><dd>sem correção</dd><dt>Piloto</dt><dd>desengatado</dd></dl>
+          <div class="barra"><b></b></div>
+        </div>
+        <div class="estado e2">
+          <div class="status"><i></i>DIAGNOSTICANDO…</div>
+          <dl class="dados"><dt>GNSS</dt><dd>9 satélites</dd><dt>Correção</dt><dd>buscando base</dd><dt>Piloto</dt><dd>aguardando</dd></dl>
+          <div class="barra"><b></b></div>
+        </div>
+        <div class="estado e3 ativo">
+          <div class="status"><i></i>RTK FIXO · PILOTO ATIVO</div>
+          <dl class="dados"><dt>GNSS</dt><dd>18 satélites</dd><dt>Correção</dt><dd>RTK</dd><dt>Piloto</dt><dd>engatado</dd></dl>
+          <div class="barra"><b></b></div>
+        </div>
+      </div>
+      <div class="base mono"><span>Display de cabine</span><i></i></div>
+    </div>
+    <p class="sr-only" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)">Ilustração de um monitor de cabine passando de sinal perdido para diagnóstico e, por fim, RTK fixo com piloto automático ativo.</p>
+    <div>
+      <p class="eyebrow destaque">Como funciona</p>
+      <h2>Do sinal perdido ao piloto engatado.</h2>
+      <ol class="passos">
+        <li><div><strong>Você chama no WhatsApp</strong><span>Conta qual é o equipamento, o problema e onde a máquina está.</span></div></li>
+        <li><div><strong>Diagnóstico</strong><span>Na fazenda ou no laboratório, a gente encontra a causa real.</span></div></li>
+        <li><div><strong>Orçamento aprovado por você</strong><span>Nenhuma peça é trocada sem a sua autorização.</span></div></li>
+        <li><div><strong>De volta ao trabalho</strong><span>Equipamento testado e entregue funcionando, com garantia.</span></div></li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+<!-- PREVENÇÃO -->
+<section class="amarelo" id="prevencao">
+  <div class="wrap prev-grid">
+    <div>
+      <p class="eyebrow">Antes da safra</p>
+      <h2>Agora é hora de prevenção no seu maquinário.</h2>
+      <p class="lead" style="color:var(--verde-noite)">Revise monitores, GPS, chicotes e ar-condicionado antes da janela apertar. Evite prejuízo e mantenha a produção rodando forte.</p>
+      <div class="hero-ctas">
+        <a class="btn btn-verde js-wa" href="#" data-event="whatsapp_prevencao" data-origem="prevencao" data-msg="Olá, Agro Lion! Quero agendar uma revisão preventiva. Equipamentos: ___ | Cidade/Fazenda: ___"><svg aria-hidden="true"><use href="#i-zap"/></svg>Agendar revisão</a>
+      </div>
+    </div>
+    <div class="prev-lista">
+      <div><strong>Mais produtividade</strong><span>Máquina trabalhando reta, com sinal e correção no ponto.</span></div>
+      <div><strong>Menos paradas</strong><span>Problema achado na revisão não aparece no meio da passada.</span></div>
+      <div><strong>Mais vida útil</strong><span>Equipamento cuidado dura mais safras.</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- FLYERS -->
+<section class="flyers" id="materiais">
+  <div class="wrap">
+    <div class="sec-head">
+      <div>
+        <p class="eyebrow">Soluções completas</p>
+        <h2>Tudo o que o seu maquinário precisa, <span class="destaque">num lugar só.</span></h2>
+      </div>
+      <p>Monitores, GPS, chicotes, ar-condicionado, troca de carcaça, reparo em placas e reprogramação. Toque no material para ver em tamanho maior.</p>
+    </div>
+    <div class="flyer-grid">
+      <button class="flyer" type="button" data-zoom="img/flyer-tecnologia.jpg" aria-label="Ampliar material: Agro Lion, tecnologia que gera resultados"><img src="img/flyer-tecnologia.jpg" alt="Material Agro Lion: monitores agrícolas, GPS agrícola, chicote elétrico e ar-condicionado agrícola. Menos máquina parada, mais produtividade no campo." width="1321" height="1785" loading="lazy"></button>
+      <button class="flyer" type="button" data-zoom="img/flyer-solucoes.jpg" aria-label="Ampliar material: soluções completas para o seu maquinário"><img src="img/flyer-solucoes.jpg" alt="Material Agro Lion: substituição de carcaça, remoção de líquido gel, instalação, manutenção, reparo em placas, reprogramação e suporte técnico." width="1321" height="1785" loading="lazy"></button>
+    </div>
+  </div>
+</section>
+
+<!-- QUEM ATENDE -->
+<section class="equipe" id="equipe">
+  <div class="wrap ceo-grid">
+    <button class="flyer flyer-solo" type="button" data-zoom="img/flyer-especialista.jpg" aria-label="Ampliar material: somos especialistas em reparos agrícolas"><img src="img/flyer-especialista.jpg" alt="Material Agro Lion: somos especialistas em reparos agrícolas. Monitores, GPS, troca de carcaça de antenas e reparos avançados em placas." width="1094" height="1600" loading="lazy"></button>
+    <div>
+      <p class="eyebrow destaque">Especialistas em reparos agrícolas</p>
+      <h2>Tecnologia, experiência e confiança para o campo não parar.</h2>
+      <p class="lead">Profissionais qualificados, equipamento de teste de última geração e atendimento transparente. As dúvidas que mais ouvimos antes do primeiro chamado:</p>
+      <div class="objecoes">
+        <div class="objecao"><q>Vai demorar e eu perco a janela?</q><p>Na safra, tempo é dinheiro. Por isso a gente vai até a fazenda quando a máquina não pode sair da lavoura.</p></div>
+        <div class="objecao"><q>Vão trocar peça à toa?</q><p>Diagnóstico primeiro, orçamento depois. Você aprova cada item antes do reparo, e o serviço tem garantia.</p></div>
+        <div class="objecao"><q>Entendem do meu equipamento?</q><p>São mais de 30 mil equipamentos reparados, de várias marcas, com laboratório próprio para o que não dá para resolver no campo.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DÚVIDAS -->
+<section class="duvidas" id="duvidas">
+  <div class="wrap">
+    <div class="sec-head">
+      <div>
+        <p class="eyebrow destaque">Dúvidas</p>
+        <h2>Perguntas frequentes.</h2>
+      </div>
+    </div>
+    <div class="faq">
+      <details><summary>Vocês atendem na fazenda?</summary><p>Sim. Atendemos em campo em Rondonópolis e região. O que precisa de bancada vem para o nosso laboratório.</p></details>
+      <details><summary>Quais equipamentos vocês consertam?</summary><p>Monitores agrícolas, receptores GPS, antenas, pilotos automáticos, placas eletrônicas, módulo ECU, chicotes, ar-condicionado agrícola, antenas Starlink e celulares.</p></details>
+      <details><summary>Quais marcas vocês atendem?</summary><p>Atendemos várias marcas. Já passaram pela nossa bancada equipamentos John Deere, Case IH, New Holland/CNH, Raven e Stara. Mande o modelo no WhatsApp que a gente confirma.</p></details>
+      <details><summary>Vocês vendem Starlink?</summary><p>Sim. Vendemos a Starlink Mini, cases de proteção e a fonte Step Up 12V para 30V, e também consertamos antenas Starlink.</p></details>
+      <details><summary>Trocam peça sem me avisar?</summary><p>Não. Primeiro vem o diagnóstico, depois o orçamento. O reparo só começa com a sua aprovação.</p></details>
+      <details><summary>O serviço tem garantia?</summary><p>Sim, todo serviço tem garantia. Pergunte o prazo para o seu equipamento no WhatsApp.</p></details>
+    </div>
+  </div>
+</section>
+
+<!-- LOCALIZAÇÃO -->
+<section id="localizacao">
+  <div class="wrap">
+    <div class="sec-head">
+      <div>
+        <p class="eyebrow destaque">Onde estamos</p>
+        <h2>Av. Bandeirantes, 2509. Centro de Rondonópolis.</h2>
+      </div>
+      <p>Traga o equipamento até a bancada ou chame a gente na fazenda. A loja fica na Avenida Bandeirantes, com fachada preta e o leão verde na placa.</p>
+    </div>
+    <div class="local-grid">
+      <figure class="foto">
+        <div class="moldura"><img src="img/fachada.jpg" alt="Fachada da loja Agro Lion na Avenida Bandeirantes, com placa preta e o logo verde e laranja" width="800" height="1000" loading="lazy"></div>
+        <figcaption><span class="mono">Fachada · Av. Bandeirantes</span><span>Centro-B · Rondonópolis-MT</span></figcaption>
+      </figure>
+      <figure class="foto mapa-fig">
+        <a class="moldura mapa" href="https://www.google.com/maps/search/?api=1&query=Agro+Lion+Av.+Bandeirantes+2509+Rondon%C3%B3polis+MT" target="_blank" rel="noopener" aria-label="Abrir a localização da Agro Lion no Google Maps">
+          <svg class="mapa-svg" viewBox="0 0 400 500" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+            <rect width="400" height="500" class="m-fundo"/>
+            <g class="m-quadra">
+              <rect x="-10" y="-10" width="120" height="130" rx="6"/><rect x="140" y="-10" width="120" height="130" rx="6"/><rect x="290" y="-10" width="130" height="130" rx="6"/>
+              <rect x="-10" y="150" width="120" height="115" rx="6"/><rect x="290" y="150" width="130" height="115" rx="6"/>
+              <rect x="-10" y="335" width="120" height="70" rx="6"/><rect x="140" y="335" width="120" height="70" rx="6"/><rect x="290" y="335" width="130" height="70" rx="6"/>
+              <rect x="-10" y="435" width="120" height="80" rx="6"/><rect x="140" y="435" width="120" height="80" rx="6"/><rect x="290" y="435" width="130" height="80" rx="6"/>
+            </g>
+            <rect class="m-praca" x="140" y="150" width="120" height="115" rx="6"/>
+            <g class="m-rua"><path d="M125 -10V510M275 -10V510M-10 135H410M-10 420H410"/></g>
+            <path class="m-av" d="M-10 300H410"/>
+            <path class="m-av-centro" d="M-10 300H410"/>
+            <text x="20" y="327" class="m-label">AV. BANDEIRANTES</text>
+            <g class="m-norte" transform="translate(360 40)"><circle r="16"/><path d="M0 -10 5 4 0 1 -5 4z"/><text y="-20" text-anchor="middle">N</text></g>
+          </svg>
+          <span class="pino" style="left:68%;top:60%">
+            <span class="pulso"></span><span class="pulso p2"></span>
+            <span class="sombra"></span>
+            <span class="marcador"><img src="img/selo.png" alt="" width="40" height="40"></span>
+          </span>
+        </a>
+        <figcaption><span class="mono">Mapa · Toque para abrir</span><span>Abre direto no Google Maps</span></figcaption>
+      </figure>
+      <div class="horario">
+        <h3>Horário <span class="agora" id="agora" hidden><i></i><span></span></span></h3>
+        <table>
+          <tbody>
+            <tr data-dia="1"><td>Segunda</td><td>07:30–18:15</td></tr>
+            <tr data-dia="2"><td>Terça</td><td>07:30–18:15</td></tr>
+            <tr data-dia="3"><td>Quarta</td><td>07:30–18:15</td></tr>
+            <tr data-dia="4"><td>Quinta</td><td>07:30–18:15</td></tr>
+            <tr data-dia="5"><td>Sexta</td><td>07:30–18:15</td></tr>
+            <tr data-dia="6"><td>Sábado</td><td>08:00–12:00</td></tr>
+            <tr data-dia="0"><td>Domingo</td><td>Fechado</td></tr>
+          </tbody>
+        </table>
+        <div class="end"><strong>Av. Bandeirantes, 2509 · Centro-B</strong>Rondonópolis-MT · CEP 78700-200</div>
+        <a class="btn btn-verde" href="https://www.google.com/maps/dir/?api=1&destination=Av.+Bandeirantes,+2509+-+Centro+-+B,+Rondon%C3%B3polis+-+MT,+78700-200" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-pin"/></svg>Traçar rota até a loja</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTATO -->
+<section class="verde" id="contato">
+  <div class="wrap contato-grid">
+    <div>
+      <p class="eyebrow">Fale com a gente</p>
+      <h2>Máquina parada é safra perdendo tempo.</h2>
+      <p class="lead">Conte o problema pelo WhatsApp e fale direto com um técnico.</p>
+      <div class="hero-ctas">
+        <a class="btn btn-amarelo js-wa" href="#" data-event="whatsapp_diagnostico" data-origem="final"><svg aria-hidden="true"><use href="#i-zap"/></svg>Solicitar meu diagnóstico</a>
+      </div>
+    </div>
+    <div>
+      <div class="cards-contato">
+        <div class="cc"><svg aria-hidden="true"><use href="#i-zap"/></svg><div><span class="mono">WhatsApp</span><strong>(66) 99256-4579</strong></div><button class="copiar" type="button" data-copiar="(66) 99256-4579">Copiar</button></div>
+        <div class="cc"><svg aria-hidden="true"><use href="#i-zap"/></svg><div><span class="mono">WhatsApp</span><strong>(66) 99283-2855</strong></div><button class="copiar" type="button" data-copiar="(66) 99283-2855">Copiar</button></div>
+        <div class="cc"><svg aria-hidden="true"><use href="#i-insta"/></svg><div><span class="mono">Instagram</span><strong><a href="https://www.instagram.com/agro_lion_roo/" target="_blank" rel="noopener">@agro_lion_roo</a></strong></div></div>
+        <div class="cc"><svg aria-hidden="true"><use href="#i-pin"/></svg><div><span class="mono">Loja e laboratório</span><strong>Av. Bandeirantes, 2509 · Centro-B</strong></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="logo-box"><img src="img/logo.png" alt="Agro Lion" width="740" height="334" loading="lazy"></div>
+    <p>Reparos em GPS e monitores agrícolas, módulo ECU, Starlink e celulares.<br>Av. Bandeirantes, 2509 · Centro-B · Rondonópolis-MT</p>
+    <p class="mono">@agro_lion_roo · (66) 99256-4579</p>
+  </div>
+</footer>
+
+<dialog class="zoom" id="zoom" aria-label="Material ampliado">
+  <button class="zoom-fechar" type="button" id="zoomFechar" aria-label="Fechar">×</button>
+  <img id="zoomImg" src="" alt="">
+</dialog>
+
+<div class="barra-fixa" id="barraFixa">
+  <a class="btn btn-verde js-wa" href="#" data-event="whatsapp_diagnostico" data-origem="barra_fixa"><svg aria-hidden="true"><use href="#i-zap"/></svg>Solicitar diagnóstico</a>
+</div>
+
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"LocalBusiness","name":"Agro Lion","description":"Reparos em GPS e monitores agrícolas, módulo ECU, Starlink e celulares.","telephone":"+55-66-99256-4579","address":{"@type":"PostalAddress","streetAddress":"Av. Bandeirantes, 2509 - Centro - B","addressLocality":"Rondonópolis","addressRegion":"MT","postalCode":"78700-200","addressCountry":"BR"},"areaServed":"Rondonópolis e região","sameAs":["https://www.instagram.com/agro_lion_roo/"],"openingHoursSpecification":[{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday"],"opens":"07:30","closes":"18:15"},{"@type":"OpeningHoursSpecification","dayOfWeek":"Saturday","opens":"08:00","closes":"12:00"}]}
+</script>
+<script>
+(function(){
+  var NUM='5566992564579';
+  var PADRAO='Olá, Agro Lion! Preciso de um diagnóstico. Equipamento: ___ | Problema: ___ | Cidade/Fazenda: ___';
+  document.querySelectorAll('.js-wa').forEach(function(a){
+    a.href='https://wa.me/'+NUM+'?text='+encodeURIComponent(a.dataset.msg||PADRAO);
+    a.target='_blank';a.rel='noopener';
+    a.addEventListener('click',function(){
+      var ev=a.dataset.event||'whatsapp_diagnostico',orig=a.dataset.origem||'';
+      try{ if(window.fbq) fbq('track','Contact',{origem:orig}); }catch(e){}
+      try{ if(window.gtag) gtag('event',ev,{origem:orig}); }catch(e){}
+      try{ (window.dataLayer=window.dataLayer||[]).push({event:ev,origem:orig}); }catch(e){}
+    });
+  });
+
+  document.querySelectorAll('.copiar').forEach(function(b){
+    b.addEventListener('click',function(){
+      var t=b.dataset.copiar,ok=function(){b.textContent='Copiado';setTimeout(function(){b.textContent='Copiar'},1600)};
+      try{ navigator.clipboard.writeText(t).then(ok,function(){sel(b)}); }catch(e){ sel(b); }
+    });
+  });
+  function sel(b){var s=b.parentNode.querySelector('strong');var r=document.createRange();r.selectNodeContents(s);var w=getSelection();w.removeAllRanges();w.addRange(r);}
+
+  // horário de Rondonópolis (America/Cuiaba)
+  try{
+    var p=new Intl.DateTimeFormat('en-US',{timeZone:'America/Cuiaba',weekday:'short',hour:'2-digit',minute:'2-digit',hour12:false}).formatToParts(new Date());
+    var g=function(t){return (p.find(function(x){return x.type===t})||{}).value};
+    var dia=['Sun','Mon','Tue','Wed','Thu','Fri','Sat'].indexOf(g('weekday'));
+    var min=(parseInt(g('hour'),10)%24)*60+parseInt(g('minute'),10);
+    var tr=document.querySelector('tr[data-dia="'+dia+'"]'); if(tr) tr.classList.add('hoje');
+    var aberto=(dia>=1&&dia<=5&&min>=450&&min<1095)||(dia===6&&min>=480&&min<720);
+    var el=document.getElementById('agora'); el.hidden=false;
+    el.querySelector('span').textContent=aberto?'Aberto agora':'Fechado agora';
+    if(!aberto) el.classList.add('fechado');
+  }catch(e){}
+
+  // monitor animado
+  var reduz=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var est=document.querySelectorAll('#tela .estado');
+  if(!reduz && est.length===3){
+    var tempos=[2200,2400,4400],i=2;
+    var passo=function(){est[i].classList.remove('ativo');i=(i+1)%3;est[i].classList.add('ativo');setTimeout(passo,tempos[i]);};
+    setTimeout(passo,tempos[2]);
+  }
+
+  // carrosséis
+  document.querySelectorAll('.carrossel').forEach(function(c){
+    var tr=c.querySelector('.trilho'),ant=c.querySelector('.car-ant'),prox=c.querySelector('.car-prox'),num=c.querySelector('.car-num'),bar=c.querySelector('.car-prog b');
+    var itens=tr.children,tot=itens.length;
+    var passo=function(){var a=itens[0].getBoundingClientRect(),b=itens[1].getBoundingClientRect();return (b.left-a.left)||1;};
+    var atual=function(){
+      var max=tr.scrollWidth-tr.clientWidth,p=passo();
+      var vis=Math.max(1,Math.round(tr.clientWidth/p));
+      var i=Math.round(tr.scrollLeft/p),fim=tr.scrollLeft>=max-4;
+      var ult=fim?tot:Math.min(tot,i+vis);
+      num.textContent=String(ult).padStart(2,'0')+' / '+String(tot).padStart(2,'0');
+      bar.style.transform='scaleX('+(ult/tot)+')';
+      ant.disabled=tr.scrollLeft<=4; prox.disabled=fim;
+    };
+    ant.addEventListener('click',function(){tr.scrollBy({left:-passo(),behavior:reduz?'auto':'smooth'})});
+    prox.addEventListener('click',function(){tr.scrollBy({left:passo(),behavior:reduz?'auto':'smooth'})});
+    var t;tr.addEventListener('scroll',function(){cancelAnimationFrame(t);t=requestAnimationFrame(atual)},{passive:true});
+    window.addEventListener('resize',atual);
+    atual();
+  });
+
+  // vídeos: sem som, tocam só quando estão visíveis
+  var vids=document.querySelectorAll('.trilho-video video');
+  vids.forEach(function(v){
+    v.muted=true;
+    v.addEventListener('click',function(){ if(v.paused){v.play().catch(function(){})} else {v.pause()} });
+  });
+  if(!reduz && 'IntersectionObserver' in window){
+    var io=new IntersectionObserver(function(es){es.forEach(function(e){
+      var v=e.target;
+      if(e.isIntersecting&&e.intersectionRatio>=.6){ if(v.preload==='none'){v.preload='auto'} v.play().catch(function(){}); }
+      else { v.pause(); }
+    })},{threshold:[0,.6]});
+    vids.forEach(function(v){io.observe(v)});
+  }
+
+  // ampliar flyers
+  var zoom=document.getElementById('zoom'),zImg=document.getElementById('zoomImg');
+  document.querySelectorAll('[data-zoom]').forEach(function(b){
+    b.addEventListener('click',function(){
+      zImg.src=b.dataset.zoom; zImg.alt=b.querySelector('img').alt;
+      if(zoom.showModal){zoom.showModal()} else {zoom.setAttribute('open','')}
+    });
+  });
+  document.getElementById('zoomFechar').addEventListener('click',function(){zoom.close?zoom.close():zoom.removeAttribute('open')});
+  zoom.addEventListener('click',function(e){ if(e.target===zoom){zoom.close()} });
+
+  // barra fixa mobile
+  var barra=document.getElementById('barraFixa'),hero=document.getElementById('hero'),fim=document.getElementById('contato');
+  if('IntersectionObserver' in window){
+    var hv=true,fv=false,upd=function(){barra.classList.toggle('mostrar',!hv&&!fv)};
+    new IntersectionObserver(function(e){hv=e[0].isIntersecting;upd()}).observe(hero);
+    new IntersectionObserver(function(e){fv=e[0].isIntersecting;upd()}).observe(fim);
+  }
+})();
+</script>
+
+</body>
+</html>
